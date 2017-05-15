@@ -26,4 +26,5 @@ ejemplo. de un numero 1010  se suma asi mismo pero  desplazado un bit a la derec
  1010
 ----
 11110
+
  y anulando el ultimo bit del resultado, ejemplo para 11110 se anula el 0 danfo el numero Gray  1111

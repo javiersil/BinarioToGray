@@ -1,8 +1,6 @@
 # BinarioToGray
 Convertidor de  Binario a Gray  
-
-
-Decimal Gray Binario
+Decimal Gray Binario \n
    0     000    000
    1     001    001
    2     011    010

@@ -7,7 +7,7 @@ package binariogray;
 
 /**
  *
- * @author cosma_000
+ * @author Mjs
  */
 public class Convertidor extends javax.swing.JFrame {
 
@@ -27,18 +27,25 @@ public class Convertidor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        numero = new javax.swing.JTextField();
+        binario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         botonC = new javax.swing.JButton();
-        resultado = new javax.swing.JTextField();
+        gray = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Convertidor"); // NOI18N
         setResizable(false);
 
-        jLabel1.setText("Ingresa el numero");
+        binario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                binarioKeyReleased(evt);
+            }
+        });
+
+        jLabel1.setText("Binario");
 
         botonC.setText("Binario a Gray");
         botonC.addActionListener(new java.awt.event.ActionListener() {
@@ -47,36 +54,57 @@ public class Convertidor extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Resultado");
+        gray.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                grayInputMethodTextChanged(evt);
+            }
+        });
+        gray.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                grayKeyReleased(evt);
+            }
+        });
+
+        jLabel2.setText("Gray");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel3.setText("Convertidor");
+
+        jButton1.setText("Gray a binario");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(152, 152, 152)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                        .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(numero)))
+                        .addGap(18, 18, 18)
+                        .addComponent(binario))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gray, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonC)
+                        .addGap(49, 49, 49)
+                        .addComponent(jButton1)
+                        .addGap(60, 60, 60)))
                 .addGap(47, 47, 47))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(botonC))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,14 +114,16 @@ public class Convertidor extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(botonC)
-                .addGap(44, 44, 44)
+                    .addComponent(binario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(47, Short.MAX_VALUE))
+                    .addComponent(gray, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonC)
+                    .addComponent(jButton1))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
@@ -102,10 +132,33 @@ public class Convertidor extends javax.swing.JFrame {
     private void botonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCActionPerformed
         // TODO add your handling code here:
         BinarioGray bg= new BinarioGray();
-        bg.stringToBinario(numero.getText());
-        
-        resultado.setText(bg.binarioToGray());
+        bg.stringToArreglo(binario.getText());
+        bg.binarioToGray();
+        gray.setText(bg.numeroToString());
     }//GEN-LAST:event_botonCActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        BinarioGray bg= new BinarioGray();
+        bg.stringToArreglo(gray.getText());
+        bg.grayToBinario();
+        binario.setText(bg.numeroToString());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void binarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_binarioKeyReleased
+        // TODO add your handling code here:
+        gray.setText("");
+    }//GEN-LAST:event_binarioKeyReleased
+
+    private void grayKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_grayKeyReleased
+        // TODO add your handling code here:
+       binario.setText("");
+    }//GEN-LAST:event_grayKeyReleased
+
+    private void grayInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_grayInputMethodTextChanged
+        // TODO add your handling code here:
+         
+    }//GEN-LAST:event_grayInputMethodTextChanged
 
     /**
      * @param args the command line arguments
@@ -143,11 +196,12 @@ public class Convertidor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField binario;
     private javax.swing.JButton botonC;
+    private javax.swing.JTextField gray;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField numero;
-    private javax.swing.JTextField resultado;
     // End of variables declaration//GEN-END:variables
 }

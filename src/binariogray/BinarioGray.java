@@ -7,17 +7,18 @@ package binariogray;
 
 /**
  *
- * @author cosma_000
+ * @author Mjs
  */
 public class BinarioGray {
    private int arg[];
+   private int result[];
    
    public BinarioGray(){
    }
    
    // convierte de string  a arreglo de enteros
-    public void stringToBinario(String cadena) {
-        arg = new int[cadena.length()];
+    public void stringToArreglo(String cadena) {
+        arg = new int[cadena.length()];       
         for (int i = 0; i < arg.length; i++) {
             try {
                 arg[i] = Integer.parseInt(cadena.charAt(i) + "");
@@ -25,41 +26,44 @@ public class BinarioGray {
                 System.out.println(e.getMessage());
             }
         }
+        result = arg;
     }
 
     // metodo de Binario a gray
-    public String binarioToGray() {
-        int gray[] = new int[arg.length];
-        
+    public void binarioToGray() {
+        result = new int[arg.length];        
         for (int i = arg.length-1 ; i >= 0; i--) {
             if ((i - 1)>=0) {
-                System.out.println(arg[i] +" | " +arg[i-1]);
                 if (arg[i] == arg[i - 1]) {
-                    gray[i] = 0;
-                     System.out.print(0);
-                } else if ((arg[i] == 1 && arg[i - 1] == 0) || (arg[i] == 0 && arg[i - 1] == 1)) {
-                    gray[i] = 1;
-                     System.out.print(1);
+                    result[i] = 0;
+                } else {
+                    result[i] = 1;
                 }
                 
             } else {
-                gray[i] = arg[i]; 
-                 System.out.println("s"+arg[i]);
-            }
-           
+                result[i] = arg[i]; 
+            }           
         }
-       return numeroToString(gray);
+      }
+    // metodo de gray a binario
+    public void grayToBinario() {
+       result = new int[arg.length];
+        result[0] = arg[0];
+        for (int i = 1; i < arg.length; i++) {
+            if (result[i - 1] == arg[i]) {
+                result[i] = 0;
+            } else {
+                result[i] = 1;
+            }
+        }
     }
-    //falta metodo de gray a binario
-    
     // convierte areglo a string
-    public String numeroToString(int arreglo[]) {
+    public String numeroToString() {
         String cadena = "";
-        for (int i = 0; i < arreglo.length; i++) {
-            cadena += arreglo[i];
+        for (int i = 0; i < result.length; i++) {
+            cadena += result[i];
         }
         return cadena;
-
     }
    
 }
